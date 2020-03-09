@@ -1,0 +1,603 @@
+<?php
+	include_once 'dbconfig.php';
+?><!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>HCS</title>
+		<!-- overlayScrollbars -->
+		<link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- DataTables -->
+		<link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="dist/css/adminlte.min.css">
+		<!-- Google Font: Source Sans Pro -->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+		<style>.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+			padding: 6px;
+			}s
+		</style>
+		<style>
+			.ion,.white {
+			color:#fff;}
+			.btnp{
+			color:white;
+			background-color:#6f42c1;
+			}
+			.btnp:hover{
+			color:white;
+			background-color:#3a1480;
+			}
+			a {
+			color:#6f42c1;
+			}
+			a:hover{
+			color:#3a1480;
+			}
+			.page-item.active .page-link {
+			background-color:#6f42c1;
+			border-color:#6f42c1;}
+			.page-link{
+			color:#6f42c1;}
+			.nav-link.active {
+			background-color:#6f42c1;}
+		</style>
+	</head>
+	<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+		<div class="wrapper">
+			<!-- Navbar -->
+			<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+				<!-- Left navbar links -->
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+					</li>
+					<li class="nav-item d-none d-sm-inline-block">
+						<a class="nav-link"><b>User Management</b></a>
+					</li>
+				</ul>
+				
+				<ul class="navbar-nav ml-auto">
+					<!-- Messages Dropdown Menu -->
+					<!-- Notifications Dropdown Menu -->
+					<!-- SEARCH FORM 
+						<form class="form-inline ml-3">
+						<div class="input-group input-group-sm">
+						<input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+						<div class="input-group-append">
+						<button class="btn btn-navbar" type="submit">
+						<i class="fas fa-search"></i>
+						</button>
+						</div>
+						</div>
+					</form>-->
+					<!-- Right navbar links -->
+					<ul class="navbar-nav ml-auto">
+						<!-- Messages Dropdown Menu -->
+						<!-- Notifications Dropdown Menu -->
+						<li class="nav-item">
+							<a type="button"  style="margin-right:10px;" href="Add-User.html" class="btn  float-right btnp">Export</a>
+							</li><li class="nav-item">
+							<a type="button"href="Add-User.html" class="btn  float-right btnp">Add User</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- /.navbar -->
+				<!-- Main Sidebar Container -->
+				<aside class="main-sidebar sidebar-light-purple elevation-4">
+					<!-- Brand Logo -->
+					<a href="index.html" class="brand-link  navbar-light">
+						<img src="dist/img/Logo.png" alt=" Logo" style="margin-left:30%;" id="logo" class="brand-image-xl"
+						style="opacity: 1">
+					</a>
+					<!-- Sidebar -->
+					<div class="sidebar">
+						<!-- Sidebar user panel (optional) -->
+						<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+							<div class="image">
+								<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+							</div>
+							<div class="info">
+								<a href="#" class="d-block">User Name</a>
+							</div>
+						</div>
+						<!-- Sidebar Menu -->
+						<nav class="mt-2">
+							<ul class="nav nav-pills nav-sidebar flex-column text-sm nav-flat " data-widget="treeview" role="menu" data-accordion="false">
+								<!-- Add icons to the links using the .nav-icon class
+								with font-awesome or any other icon font library -->
+								<li class="nav-item has-treeview ">
+									<a href="index.html" class="nav-link ">
+										<i class="nav-icon far fa fa-tachometer-alt"></i>
+										<p class="black" >
+											Dashboard
+											<i class="right"></i>
+										</p>
+									</a>
+								</li>
+								<!-- User Management -->
+								<li class="nav-header">MASTERS</li>
+								<li class="nav-item">
+										<a href="User.html" class="nav-link">
+											<i class="far fa-user nav-icon"></i>
+											<p>User</p>
+										</a>
+									</li>
+								<!-- Client Master-->
+								<li class="nav-item has-treeview">
+									<a href="#" class="nav-link">
+										<i class="nav-icon fas fa fa-handshake"></i>
+										<p>
+											Client Master
+											<i class="right fas fa-angle-left"></i>
+										</p>
+									</a>
+									<ul class="nav nav-treeview">
+										<li class="nav-item">
+											<a href="Add-Client.html" class="nav-link">
+												<i class="far fa-user nav-icon"></i>
+												<p>Client Profile</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Client-Admin.html" class="nav-link">
+												<i class="far fa fa-lock nav-icon"></i>
+												<p>Client Admin</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Create-Client-Package.html" class="nav-link">
+												<i class="far fa fa-briefcase nav-icon"></i>
+												<p>Create Client Package</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<!-- SCIS Master-->
+								<li class="nav-item has-treeview">
+									<a href="#" class="nav-link">
+										<i class="nav-icon fas fa fa-cog"></i>
+										<p>
+											Master
+											<i class="right fas fa-angle-left"></i>
+										</p>
+									</a>
+									<ul class="nav nav-treeview">
+										<li class="nav-item">
+											<a href="Category-Master.html" class="nav-link">
+												<i class="far fa fa-list nav-icon"></i>
+												<p>Category</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Target-Audience.html" class="nav-link">
+												<i class="far fa fa-bullseye nav-icon"></i>
+												<p>Target Audience</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Master-Service-List.html" class="nav-link">
+												<i class="far fa fa-list-ol nav-icon"></i>
+												<p>Create Service List</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Hazard.html" class="nav-link">
+												<i class="far fa fa-exclamation-triangle nav-icon"></i>
+												<p>Occupational Hazard</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Additional-Master.html" class="nav-link">
+												<i class="far fa fa-industry nav-icon"></i>
+												<p>Additional</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<!-- SCIS Services-->
+								<li class="nav-header">SERVICES</li>
+								<li class="nav-item has-treeview">
+									<a href="#" class="nav-link">
+										<i class="nav-icon fas fa fa-gift"></i>
+										<p>
+											Service
+											<i class="right fas fa-angle-left"></i>
+										</p>
+									</a>
+									<ul class="nav nav-treeview">
+								<li class="nav-item">
+											<a href="#" class="nav-link ">
+												<i class="fas fa-poll nav-icon"></i>
+												<p>Survey</p>
+											</a>
+										</li>
+												<li class="nav-item">
+											<a href="create-polls.html" class="nav-link ">
+												<i class="fas fa-poll nav-icon"></i>
+												<p>Polls</p>
+											</a>
+										</li>
+								
+										
+											<li class="nav-item">
+											<a href="Partner-Ind.html" class="nav-link ">
+												<i class="far fa fa-user-plus nav-icon"></i>
+												<p>Partner</p>
+											</a>
+											</li>
+										<li class="nav-item">
+											<a href="Healthpromotion.html" class="nav-link">
+												<i class="far fa fa-medkit nav-icon"></i>
+												<p>Health Promotion</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Newsletter.html" class="nav-link">
+												<i class="far fa fa-envelope nav-icon"></i>
+												<p>News Letter</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Toolkit.html" class="nav-link">
+												<i class="far fa fa-wrench nav-icon"></i>
+												<p>Tool Kit / On-ground Events
+												</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Bitesize-ideas.html" class="nav-link">
+												<i class="far fa fa-lightbulb nav-icon"></i>
+												<p>Bite Size Ideas
+												</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Merchandise-Master.html" class="nav-link">
+												<i class="far fa fa-tags nav-icon"></i>
+												<p>Merchandise Master
+												</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Webinar.html" class="nav-link">
+												<i class="far fa fa-podcast nav-icon"></i>
+												<p>Webinar
+												</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<!-- Publishing Services -->
+								<li class="nav-item has-treeview">
+									<a href="#" class="nav-link">
+										<i class="nav-icon fas fa fa-bullhorn"></i>
+										<p>
+											Publishing
+											<i class="right fas fa-angle-left"></i>
+										</p>
+									</a>
+									<ul class="nav nav-treeview">
+										<li class="nav-item">
+											<a href="HealthTip.html" class="nav-link">
+												<i class="far fa fa-heartbeat nav-icon"></i>
+												<p>Health Tip of the day</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Healthdays.html" class="nav-link">
+												<i class="far fa fa-sun nav-icon"></i>
+												<p>Health Days</p>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<!--Publishing-->
+								<li class="nav-item">
+									<a href="pages/charts/chartjs.html" class="nav-link">
+										<i class="far fa fa-list nav-icon"></i>
+										<p>Reports</p>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="Ticket.html" class="nav-link">
+										<i class="far fa fa-list nav-icon"></i>
+										<p>Ticket</p>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<!-- /.sidebar-menu -->
+					</div>
+					<!-- /.sidebar -->
+				</aside>
+				<!-- Content Wrapper. Contains page content -->
+				<div class="content-wrapper">
+					<!-- Main content -->
+					<section class="content">
+						<div class="row">
+							<div class="col-12">
+								<!-- /.card -->
+								<div class="card">
+									<!-- /.card-header -->
+									<div class="card-body">
+										<table id="example1" class="table table-striped table-bordered dt-responsive nowrap table-condensed" style="width:100%;">
+											<thead>
+												<tr>
+													<th width="10%">Employee ID</th>
+													<th>Name</th>
+													<th>E-mail ID</th>
+													<th>Contact</th>
+													<th>Role</th>
+													<th>Status</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Emp-1</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>User</td>
+													<td>Active</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a href="#" >
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Emp-2</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>User</td>
+													<td>Inactive</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Emp-3</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>Account Managger</td>
+													<td>Active</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>4</td>
+													<td>Emp-4</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>Account Managger</td>
+													<td>Inactive</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>5</td>
+													<td>Emp-5</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>Account Managger</td>
+													<td>Active</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>6</td>
+													<td>Emp-6</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>User</td>
+													<td>Inactive</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>7</td>
+													<td>Emp-7</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>Account Managger</td>
+													<td>Active</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>8</td>
+													<td>Emp-8</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>Account Managger</td>
+													<td>Inactive</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>9</td>
+													<td>Emp-9</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>User</td>
+													<td>Active</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td>Emp-10</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>User</td>
+													<td>Inactive</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<td>11</td>
+													<td>Emp-11</td>
+													<td>emp@hcs.com</td>
+													<td>9876543210</td>
+													<td>Account Managger</td>
+													<td>Active</td>
+													<td align="center"> 
+														<a class="" href="#" class="nav-link">
+															View
+														</a>&nbsp;&nbsp;&nbsp;
+														<a class="" href="#" class="nav-link">
+															Modify
+														</a>
+													</td>
+												</tr>
+											</tbody>
+											<tfoot>
+											</tfoot>
+										</table>
+									</div>
+									<!-- /.card-body -->
+								</div>
+								<!-- /.card -->
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+					</section>
+					<!-- /.content -->
+				</div>
+				<!-- /.content-wrapper -->
+				<!-- Control Sidebar -->
+				<aside class="control-sidebar control-sidebar-dark">
+					<!-- Control sidebar content goes here -->
+				</aside>
+				<!-- /.control-sidebar -->
+				<!-- Main Footer -->
+				<footer class="main-footer text-sm">
+					<strong>Copyright &copy; 2019-2020 .</strong>
+					All rights reserved.
+					<div class="float-right d-none d-sm-inline-block">
+					</div>
+				</footer>
+			</div>
+			<!-- ./wrapper -->
+			<!-- REQUIRED SCRIPTS -->
+			<!-- jQuery -->
+			<script src="plugins/jquery/jquery.min.js"></script>
+			<!-- Bootstrap -->
+			<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<!-- overlayScrollbars -->
+			<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+			<!-- AdminLTE App -->
+			<!-- OPTIONAL SCRIPTS -->
+			<script src="dist/js/demo.js"></script>
+			<!-- PAGE PLUGINS -->
+			<!-- jQuery Mapael -->
+			<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+			<script src="plugins/raphael/raphael.min.js"></script>
+			<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+			<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+			<!-- ChartJS -->
+			<script src="plugins/chart.js/Chart.min.js"></script>
+			<!-- DataTables -->
+			<script src="plugins/datatables/jquery.dataTables.js"></script>
+			<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+			<script src="plugins/datatables-responsive/js/dataTables.responsive.js"></script>
+			<script src="plugins/datatables-responsive/js/responsive.bootstrap4"></script>
+			<!-- AdminLTE App -->
+			<script src="dist/js/adminlte.min.js"></script>
+			<script src="dist/js/pages/dashboard2.js"></script>
+			<!-- AdminLTE for demo purposes -->
+			<script src="dist/js/demo.js"></script>
+			<!-- page script -->
+			<script>
+				$(function () {
+					$("#example1").DataTable();
+					$('#example2').DataTable({
+						"paging": true,
+						"lengthChange": false,
+						"searching": false,
+						"ordering": true,
+						"info": true,
+						"autoWidth": false,
+					});
+				});
+			</script>
+			<script>
+				function abc() {
+					var x = document.getElementById("logo");
+					if (x.style.marginLeft === "-15%") {
+						x.style.marginLeft = "30%";
+						} else {
+						x.style.marginLeft = "-15%";
+					}
+				}
+			</script>
+		</body>
+	</html>													

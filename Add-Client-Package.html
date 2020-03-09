@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>HCS</title>
+		<!-- overlayScrollbars -->
+		<link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+		<link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+		<link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+		<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- DataTables -->
+		<link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="dist/css/adminlte.min.css">
+		<!-- Google Font: Source Sans Pro -->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- daterange picker -->
+		<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+		<!-- iCheck for checkboxes and radio inputs -->
+		<link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+		<!-- Bootstrap Color Picker -->
+		<link rel="stylesheet" href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+		<!-- Tempusdominus Bbootstrap 4 -->
+		<link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+		<!-- Select2 -->
+		<link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+		<link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+		<!-- Bootstrap4 Duallistbox -->
+		<link rel="stylesheet" href="plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+		<!-- Theme style -->
+		<!-- Google Font: Source Sans Pro -->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+			<style>.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+			padding: 6px;
+			}
+
+		</style>
+		<style>
+			.bg-info1{
+			background-color:#6f42c1;
+			color:#fff;
+			}
+			.fas1,.white {
+			color:#fff;
+			}
+			.nav-link.active {
+			background-color:#6f42c1;}
+			textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+			border-color: rgba(229, 103, 23, 0.8);
+			box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+			outline: 0 none;
+			}
+			.icheck-danger>input:first-child:not(:checked):not(:disabled):hover+input[type=hidden]+label::before,
+			.icheck-danger>input:first-child:not(:checked):not(:disabled):hover+label::before {
+			border-color: #6f42c1
+			}
+			.icheck-danger>input:first-child:not(:checked):not(:disabled):focus+input[type=hidden]+label::before,
+			.icheck-danger>input:first-child:not(:checked):not(:disabled):focus+label::before {
+			border-color: #6f42c1
+			}
+			.icheck-danger>input:first-child:checked+input[type=hidden]+label::before,
+			.icheck-danger>input:first-child:checked+label::before {
+			background-color: #6f42c1;
+			border-color: #6f42c1
+		</style>
+	</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<!-- Left navbar links -->
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+</li>
+<li class="nav-item d-none d-sm-inline-block">
+<a class="nav-link"><b>Client Profile</b></a>
+</li>
+</ul>
+<!-- SEARCH FORM 
+<form class="form-inline ml-3">
+<div class="input-group input-group-sm">
+<input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+<div class="input-group-append">
+<button class="btn btn-navbar" type="submit">
+<i class="fas fa-search"></i>
+</button>
+</div>
+</div>
+</form>-->
+<!-- Right navbar links -->
+</nav>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-light-purple elevation-4">
+				<!-- Brand Logo -->
+				<a href="index.html" class="brand-link  navbar-light">
+					<img src="dist/img/Logo.png" alt=" Logo" style="margin-left:30%;" id="logo"class="brand-image-xl"
+					style="opacity: 1">
+				</a>
+				<!-- Sidebar -->
+				<div class="sidebar">
+					<!-- Sidebar user panel (optional) -->
+					<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+						<div class="image">
+							<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+						</div>
+						<div class="info">
+							<a href="#" class="d-block">User Name</a>
+						</div>
+					</div>
+					<!-- Sidebar Menu -->
+					<nav class="mt-2">
+						<ul class="nav nav-pills nav-sidebar flex-column text-sm nav-flat " data-widget="treeview" role="menu" data-accordion="false">
+							<!-- Add icons to the links using the .nav-icon class
+							with font-awesome or any other icon font library -->
+							<li class="nav-item has-treeview ">
+									<a href="index.html" class="nav-link ">
+										<i class="nav-icon far fa fa-tachometer-alt"></i>
+										<p class="black" >
+											Dashboard
+											<i class="right"></i>
+										</p>
+									</a>
+								</li>
+							<!-- User Management -->
+							<li class="nav-header">MASTERS</li>
+							<li class="nav-item">
+										<a href="User.html" class="nav-link">
+											<i class="far fa-user nav-icon"></i>
+											<p>User</p>
+										</a>
+									</li>
+							<!-- Client Master-->
+							<li class="nav-item has-treeview menu-open">
+								<a href="#" class="nav-link active">
+									<i class="nav-icon fas fa fa-handshake"></i>
+									<p>
+										Client Master
+										<i class="right fas fa-angle-left"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="Add-Client.html" class="nav-link ">
+											<i class="far fa-user nav-icon"></i>
+											<p>Client Profile</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Client-Admin.html" class="nav-link ">
+											<i class="far fa fa-lock nav-icon"></i>
+											<p>Client Admin</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Create-Client-Package.html" class="nav-link active">
+											<i class="far fa fa-briefcase nav-icon"></i>
+											<p>Create Client Package</p>
+										</a>
+									</li>
+									
+								</ul>
+							</li>
+							<!-- SCIS Master-->
+							<li class="nav-item has-treeview ">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa fa-cog"></i>
+									<p>
+										Master
+										<i class="right fas fa-angle-left"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="Category-Master.html" class="nav-link">
+											<i class="far fa fa-list nav-icon"></i>
+											<p>Category</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Target-Audience.html" class="nav-link">
+											<i class="far fa fa-bullseye nav-icon"></i>
+											<p>Target Audience</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Master-Service-List.html" class="nav-link ">
+											<i class="far fa fa-list-ol nav-icon"></i>
+											<p>Create Service List</p>
+										</a>
+									</li>
+									
+									<li class="nav-item">
+										<a href="Hazard.html" class="nav-link ">
+											<i class="far fa fa-exclamation-triangle nav-icon"></i>
+											<p>Occupational Hazard</p>
+										</a>
+									</li>
+									
+									<li class="nav-item">
+										<a href="Additional-Master.html" class="nav-link">
+											<i class="far fa fa-industry nav-icon"></i>
+											<p>Additional</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<!-- SCIS Services-->
+							<li class="nav-header">SERVICES</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa fa-gift"></i>
+									<p>
+										Service
+										<i class="right fas fa-angle-left"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+											<a href="#" class="nav-link">
+												<i class="fas fa-poll nav-icon"></i>
+												<p>Survey</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="create-polls.html" class="nav-link ">
+												<i class="fas fa-poll nav-icon"></i>
+												<p>Polls</p>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="Partner-Ind.html" class="nav-link">
+												<i class="far fa fa-user-plus nav-icon"></i>
+												<p>Partner</p>
+											</a>
+										</li>
+									<li class="nav-item">
+										<a href="Healthpromotion.html" class="nav-link">
+											<i class="far fa fa-medkit nav-icon"></i>
+											<p>Health Promotion</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Newsletter.html" class="nav-link">
+											<i class="far fa fa-envelope nav-icon"></i>
+											<p>News Letter</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Toolkit.html" class="nav-link">
+											<i class="far fa fa-wrench nav-icon"></i>
+											<p>Tool Kit / On-ground Events
+											</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Bitesize-ideas.html" class="nav-link">
+											<i class="far fa fa-lightbulb nav-icon"></i>
+											<p>Bite Size Ideas
+											</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Merchandise-Master.html" class="nav-link">
+											<i class="far fa fa-tags nav-icon"></i>
+											<p>Merchandise Master
+											</p>
+										</a>
+									</li>
+									
+									<li class="nav-item">
+										<a href="Webinar.html" class="nav-link">
+											<i class="far fa fa-podcast nav-icon"></i>
+											<p>Webinar
+											</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<!-- Publishing Services -->
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa fa-bullhorn"></i>
+									<p>
+										Publishing
+										<i class="right fas fa-angle-left"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="HealthTip.html" class="nav-link">
+											<i class="far fa fa-heartbeat nav-icon"></i>
+											<p>Health Tip of the day</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="Healthdays.html" class="nav-link">
+											<i class="far fa fa-sun nav-icon"></i>
+											<p>Health Days</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<!--Publishing-->
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									<i class="far fa fa-list nav-icon"></i>
+									<p>Reports</p>
+								</a>
+							</li>
+							
+							<li class="nav-item">
+								<a href="Ticket.html" class="nav-link">
+									<i class="far fa fa-list nav-icon"></i>
+									<p>Ticket</p>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- /.sidebar-menu -->
+				</div>
+				<!-- /.sidebar -->
+			</aside>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<!-- Main content -->
+<section class="content">
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<form role="form">
+<!-- general form elements disabled --><br>
+<div class="card ">
+<div class="card-header"  style="background-color:#6f42c1;" >
+<h3 class="card-title white">Client Package</h3>
+<div class="card-tools">
+<!--<button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#info"> <i class="fas fas1 fa-plus"></i>
+</button>-->
+</div>
+</div>
+<!-- /.card-header -->
+<div class="card-body  " id="info">
+<div class="row">
+<div class="col-sm-4">
+<div class="form-group">
+<label>Company Name</label>
+<select class="custom-select">
+<option selected disabled> Select  </option>
+<option> Perftech Solutions  </option>
+</select>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="form-group">
+<label>Start Date:</label>
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+</div>
+<input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+</div>
+<!-- /.input group -->
+</div>
+</div>
+<div class="col-sm-4">
+<div class="form-group">
+<label>End Date:</label>
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+</div>
+<input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+</div>
+<!-- /.input group -->
+</div>
+</div>
+<div class="col-sm-12">
+	<label class="col-sm-4">Service</label>
+	<label class="col-sm-4">Total bought</label>
+</div>
+<div class="col-sm-4">
+<div class="form-group">
+<select class="custom-select">
+<option selected disabled> Select </option>
+<option> Survey </option>
+<option> Polls </option>
+<option> Health Promotion </option>
+</select>
+</div>
+</div>
+
+<div class="col-sm-4">
+<div class="form-group">
+<input type="text" class="form-control" id="total_bought" placeholder="10">
+</div>
+</div>
+
+<div class="col-sm-4">	
+	<a type="button "  href="SurveyMaster.html" class="btn bg-info1 ">Search</a>
+</div>
+
+<div class="col-sm-12">	
+<br>
+<table id="example1" class="table table-striped table-bordered dt-responsive nowrap table-condensed" >
+<thead>
+<tr>
+<th>Service Code </th>
+<th> Service </th>
+<th> Service Name </th>
+</tr>
+</thead>
+<tbody>
+
+		<tr>
+		<td> S00002</td>
+		<td> Survey </td>
+		<td> Mental Health </td>
+		</tr>
+		
+		</tbody>
+<tfoot>
+</tfoot>
+</table>
+<br>
+<a type="button" href="#" class="btn bg-info1 ">Add Client Package</a>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+<!-- /.col -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+<!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+<!-- Main Footer -->
+<footer class="main-footer text-sm">
+<strong>Copyright &copy; 2014-2019 .</strong>
+All rights reserved.
+<div class="float-right d-none d-sm-inline-block">
+</div>
+</footer>
+</div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- date-range-picker -->
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<!-- OPTIONAL SCRIPTS -->
+<script src="dist/js/demo.js"></script>
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="plugins/raphael/raphael.min.js"></script>
+<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- PAGE SCRIPTS -->
+<script src="dist/js/pages/dashboard2.js"></script>
+<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- DataTables -->
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+$(function () {
+$("#example1").DataTable();
+$('#example2').DataTable({
+"paging": true,
+"lengthChange": false,
+"searching": false,
+"ordering": true,
+"info": true,
+"autoWidth": false,
+});
+});
+</script>
+<script>
+function abc() {
+var x = document.getElementById("logo");
+if (x.style.marginLeft === "-15%") {
+x.style.marginLeft = "30%";
+} else {
+x.style.marginLeft = "-15%";
+}
+}
+</script>
+<script>
+$(function () {
+//Initialize Select2 Elements
+$('.select2').select2()
+//Initialize Select2 Elements
+$('.select2bs4').select2({
+theme: 'bootstrap4'
+})
+//Datemask dd/mm/yyyy
+$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+//Datemask2 mm/dd/yyyy
+$('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+//Money Euro
+$('[data-mask]').inputmask()
+//Date range picker
+$('#reservation').daterangepicker()
+//Date range picker with time picker
+$('#reservationtime').daterangepicker({
+timePicker: true,
+timePickerIncrement: 30,
+locale: {
+format: 'MM/DD/YYYY hh:mm A'
+}
+})
+//Date range as a button
+$('#daterange-btn').daterangepicker(
+{
+ranges   : {
+'Today'       : [moment(), moment()],
+'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+},
+startDate: moment().subtract(29, 'days'),
+endDate  : moment()
+},
+function (start, end) {
+$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+}
+)
+//Timepicker
+$('#timepicker').datetimepicker({
+format: 'LT'
+})
+//Bootstrap Duallistbox
+$('.duallistbox').bootstrapDualListbox()
+//Colorpicker
+$('.my-colorpicker1').colorpicker()
+//color picker with addon
+$('.my-colorpicker2').colorpicker()
+$('.my-colorpicker2').on('colorpickerChange', function(event) {
+$('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+});
+$("input[data-bootstrap-switch]").each(function(){
+$(this).bootstrapSwitch('state', $(this).prop('checked'));
+});
+})
+</script>
+</body>
+</html>tch]").each(function(){
+$(this).bootstrapSwitch('state', $(this).prop('checked'));
+});
+})
+</script>
+</body>
+</html>
